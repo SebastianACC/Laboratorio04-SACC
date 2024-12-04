@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.painterResource
@@ -38,13 +39,17 @@ class MainActivity : ComponentActivity() {
 fun TopAppBarWithIcons() {
     TopAppBar(
         title = {
-            Text(text = "Lista de Tareas")
+            Text(
+                text = "Lista de Tareas",
+                color = Color.White
+            )
         },
         navigationIcon = {
             IconButton(onClick = { }) {
                 Icon(
                     painter = painterResource(id = android.R.drawable.ic_menu_search),
-                    contentDescription = "Menú"
+                    contentDescription = "Menú",
+                    tint = Color.White
                 )
             }
         },
@@ -52,16 +57,21 @@ fun TopAppBarWithIcons() {
             IconButton(onClick = { }) {
                 Icon(
                     painter = painterResource(id = android.R.drawable.ic_menu_search),
-                    contentDescription = "Buscar"
+                    contentDescription = "Buscar",
+                    tint = Color.Black
                 )
             }
             IconButton(onClick = { }) {
                 Icon(
                     painter = painterResource(id = android.R.drawable.ic_input_add),
-                    contentDescription = "Agregar Tarea"
+                    contentDescription = "Agregar Tarea",
+                    tint = Color.White
                 )
             }
-        }
+        },
+        colors = TopAppBarDefaults.smallTopAppBarColors(
+            containerColor = Color(0xFFFFB74D)
+        )
     )
 }
 
