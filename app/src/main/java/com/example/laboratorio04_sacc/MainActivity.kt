@@ -6,13 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.painterResource
 import com.example.laboratorio04_sacc.ui.theme.Laboratorio04SACCTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,12 +20,49 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Laboratorio04SACCTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    topBar = {
+                        TopAppBarWithIcons()
+                    },
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
                     ListaTareas(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TopAppBarWithIcons() {
+    TopAppBar(
+        title = {
+            Text(text = "Lista de Tareas")
+        },
+        navigationIcon = {
+            IconButton(onClick = { }) {
+                Icon(
+                    painter = painterResource(id = android.R.drawable.ic_menu_search),
+                    contentDescription = "Menú"
+                )
+            }
+        },
+        actions = {
+            IconButton(onClick = { }) {
+                Icon(
+                    painter = painterResource(id = android.R.drawable.ic_menu_search),
+                    contentDescription = "Buscar"
+                )
+            }
+            IconButton(onClick = { }) {
+                Icon(
+                    painter = painterResource(id = android.R.drawable.ic_input_add),
+                    contentDescription = "Agregar Tarea"
+                )
+            }
+        }
+    )
 }
 
 @Composable
