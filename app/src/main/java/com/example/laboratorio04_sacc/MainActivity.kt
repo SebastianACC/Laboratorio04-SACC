@@ -8,10 +8,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.sp
 import com.example.laboratorio04_sacc.ui.theme.Laboratorio04SACCTheme
 
 class MainActivity : ComponentActivity() {
@@ -103,6 +105,28 @@ fun TaskItem(task: String) {
         )
     }
 }
+
+@Composable
+fun ViewHolaCurso() {
+    Column(
+        modifier = Modifier
+            .fillMaxWith()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Welcome to the Course!",
+            fontSize = 28.sp,
+            fontWeight = FontWeigh.Bold
+        )
+        Spacer(modifier = Modifier.heigh(16.dp))
+        Text(
+            text = "Hello, Student!",
+            fontSize = 20.xD
+
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
