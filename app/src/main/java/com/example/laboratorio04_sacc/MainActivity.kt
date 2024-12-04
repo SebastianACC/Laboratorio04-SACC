@@ -60,7 +60,7 @@ fun TopAppBarWithIcons() {
                 Icon(
                     painter = painterResource(id = android.R.drawable.ic_menu_search),
                     contentDescription = "Buscar",
-                    tint = Color.Black
+                    tint = Color.White
                 )
             }
             IconButton(onClick = { }) {
@@ -72,7 +72,7 @@ fun TopAppBarWithIcons() {
             }
         },
         colors = TopAppBarDefaults.smallTopAppBarColors(
-            containerColor = Color(0xFFFFB74D)
+            containerColor = Color(0xFFFFA726)
         )
     )
 }
@@ -84,7 +84,8 @@ fun ListaTareas(modifier: Modifier = Modifier) {
         "Tarea 2: Revisar los correos importantes.",
         "Tarea 3: Preparar la presentación para el cliente.",
         "Tarea 4: Organizar la base de datos del proyecto.",
-        "Tarea 5: Actualizar la documentación."
+        "Tarea 5: Actualizar la documentación.",
+        "Tarea 6: Reunión con el cliente para nuevas actualizaciones."
     )
 
     LazyColumn(modifier = modifier) {
@@ -102,7 +103,7 @@ fun TaskItem(task: String) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .background(if (isChecked) Color.LightGray else Color.Transparent)
+            .background(if (isChecked) Color(0xFFFFF3E0) else Color.Transparent)
             .padding(8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -110,8 +111,8 @@ fun TaskItem(task: String) {
             checked = isChecked,
             onCheckedChange = { isChecked = it },
             colors = CheckboxDefaults.colors(
-                checkedColor = Color.Green,
-                uncheckedColor = Color.Red
+                checkedColor = Color(0xFF81C784),
+                uncheckedColor = Color(0xFFEF9A9A)
             )
         )
 
@@ -119,7 +120,7 @@ fun TaskItem(task: String) {
             text = task,
             modifier = Modifier.weight(1f),
             style = MaterialTheme.typography.bodyLarge.copy(
-                color = Color.Black,
+                color = Color(0xFF212121),
                 fontWeight = FontWeight.Bold
             )
         )
