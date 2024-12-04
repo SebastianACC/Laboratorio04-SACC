@@ -4,12 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -48,10 +48,24 @@ fun ListaTareas(modifier: Modifier = Modifier) {
 
 @Composable
 fun TaskItem(task: String) {
-    Text(
-        text = task,
-        modifier = Modifier.padding(16.dp)
-    )
+    var isChecked by remember { mutableStateOf(false) }
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Checkbox(
+            checked = isChecked,
+            onCheckedChange = { isChecked = it }
+        )
+
+        Text(
+            text = task,
+            modifier = Modifier.weight(1f)
+        )
+    }
 }
 
 @Preview(showBackground = true)
