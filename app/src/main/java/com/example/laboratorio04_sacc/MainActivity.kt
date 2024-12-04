@@ -6,11 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.laboratorio04_sacc.ui.theme.Laboratorio04SACCTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Laboratorio04SACCTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    ListaTareas(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -31,17 +30,34 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun ListaTareas(modifier: Modifier = Modifier) {
+    val tasks = listOf(
+        "Tarea 1: Realizar la reunión con el equipo.",
+        "Tarea 2: Revisar los correos importantes.",
+        "Tarea 3: Preparar la presentación para el cliente.",
+        "Tarea 4: Organizar la base de datos del proyecto.",
+        "Tarea 5: Actualizar la documentación."
+    )
+
+    LazyColumn(modifier = modifier) {
+        items(tasks.size) { index ->
+            TaskItem(task = tasks[index])
+        }
+    }
+}
+
+@Composable
+fun TaskItem(task: String) {
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text = task,
+        modifier = Modifier.padding(16.dp)
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun TaskListPreview() {
     Laboratorio04SACCTheme {
-        Greeting("Android")
+        ListaTareas()
     }
 }
