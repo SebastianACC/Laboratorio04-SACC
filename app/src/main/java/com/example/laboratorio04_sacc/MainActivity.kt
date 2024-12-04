@@ -83,9 +83,8 @@ fun ListaTareas(modifier: Modifier = Modifier) {
         "Tarea 1: Realizar la reunión con el equipo.",
         "Tarea 2: Revisar los correos importantes.",
         "Tarea 3: Preparar la presentación para el cliente.",
-        "Tarea 4: Modificación Necesaria.",
-        "Tarea 5: Actualizar la documentación.",
-        "Tarea 6: Creamos conflicto."
+        "Tarea 4: Organizar la base de datos del proyecto.",
+        "Tarea 5: Actualizar la documentación."
     )
 
     LazyColumn(modifier = modifier) {
@@ -111,7 +110,7 @@ fun TaskItem(task: String) {
             checked = isChecked,
             onCheckedChange = { isChecked = it },
             colors = CheckboxDefaults.colors(
-                checkedColor = Color.Blue,
+                checkedColor = Color.Green,
                 uncheckedColor = Color.Red
             )
         )
